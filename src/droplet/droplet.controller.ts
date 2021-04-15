@@ -22,7 +22,7 @@ export class DropletController {
 
   @Get(':id')
   async getDropletDetails(@Param() params): string {
-    return this.dropletService.getDropletDetails(params.id);
+    return await this.dropletService.getDropletDetails(params.id);
   }
 
   @Put(':id')
