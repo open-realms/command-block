@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class DropletService {
-  getAllDroplets(): string {
+  async getAllDroplets(): string {
     return 'Here are all the servers!';
   }
 
