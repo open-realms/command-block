@@ -10,7 +10,7 @@ export class DropletService {
     return 'A new server has been created!';
   }
 
-  deleteDroplet(id: string): string {
+  async deleteDroplet(id: string): string {
     return 'Server ${id} has been deleted!';
   }
 
