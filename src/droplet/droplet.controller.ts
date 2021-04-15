@@ -12,7 +12,7 @@ export class DropletController {
 
   @Post()
   async createDroplet(): string {
-    return this.dropletService.createDroplet();
+    return await this.dropletService.createDroplet();
   }
 
   @Delete(':id')
