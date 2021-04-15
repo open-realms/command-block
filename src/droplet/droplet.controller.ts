@@ -16,7 +16,7 @@ export class DropletController {
   }
 
   @Delete(':id')
-  deleteDroplet(@Param() params): string {
+  async deleteDroplet(@Param() params): string {
     return this.dropletService.deleteDroplet(params.id);
   }
 
