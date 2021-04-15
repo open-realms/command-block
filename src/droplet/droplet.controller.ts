@@ -6,37 +6,37 @@ export class DropletController {
   constructor(private readonly dropletService: DropletService) {}
 
   @Get()
-  getAllDroplets(): string {
-    return this.dropletService.getAllDroplets();
+  async getAllDroplets(): Promise<string> {
+    return await this.dropletService.getAllDroplets();
   }
 
   @Post()
-  async createDroplet(): string {
+  async createDroplet(): Promise<string> {
     return await this.dropletService.createDroplet();
   }
 
   @Delete(':id')
-  async deleteDroplet(@Param() params): string {
+  async deleteDroplet(@Param() params): Promise<string> {
     return await this.dropletService.deleteDroplet(params.id);
   }
 
   @Get(':id')
-  async getDropletDetails(@Param() params): string {
+  async getDropletDetails(@Param() params): Promise<string> {
     return await this.dropletService.getDropletDetails(params.id);
   }
 
   @Put(':id')
-  async updateDropletDetails(@Param() params): string {
+  async updateDropletDetails(@Param() params): Promise<string> {
     return await this.dropletService.updateDropletDetails(params.id);
   }
 
   @Put(':id/start')
-  async startDroplet(@Param() params): string {
+  async startDroplet(@Param() params): Promise<string> {
     return await this.dropletService.startDroplet(params.id);
   }
 
   @Put(':id/stop')
-  async stopDroplet(@Param() params): string {
+  async stopDroplet(@Param() params): Promise<string> {
     return await this.dropletService.stopDroplet(params.id);
   }
 }

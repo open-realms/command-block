@@ -2,31 +2,31 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class DropletService {
-  async getAllDroplets(): string {
+  async getAllDroplets(): Promise<string> {
     return 'Here are all the servers!';
   }
 
-  async createDroplet(): string {
+  async createDroplet(): Promise<string> {
     return 'A new server has been created!';
   }
 
-  async deleteDroplet(id: string): string {
+  async deleteDroplet(id: string): Promise<string> {
     return 'Server ${id} has been deleted!';
   }
 
-  async getDropletDetails(id: string): string {
+  async getDropletDetails(id: string): Promise<string> {
     return 'Here are the details for this server: ${id}';
   }
 
-  async updateDropletDetails(id: string): string {
+  async updateDropletDetails(id: string): Promise<string> {
     return 'Server ${id} has been updated!';
   }
 
-  async startDroplet(id: string): string {
+  async startDroplet(id: string): Promise<string> {
     return 'Server ${id} has been started!';
   }
 
-  async stopDroplet(id: string): string {
+  async stopDroplet(id: string): Promise<string> {
     return 'Server ${id} has been stopped!';
   }
 }
