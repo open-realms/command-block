@@ -6,7 +6,7 @@ export class DropletService {
     return 'Here are all the servers!';
   }
 
-  createDroplet(): string {
+  async createDroplet(): string {
     return 'A new server has been created!';
   }
 
