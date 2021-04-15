@@ -18,7 +18,7 @@ export class DropletService {
     return 'Here are the details for this server: ${id}';
   }
 
-  updateDropletDetails(id: string): string {
+  async updateDropletDetails(id: string): string {
     return 'Server ${id} has been updated!';
   }
 
