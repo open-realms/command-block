@@ -21,7 +21,7 @@ export class DropletController {
   }
 
   @Get(':id')
-  getDropletDetails(@Param() params): string {
+  async getDropletDetails(@Param() params): string {
     return this.dropletService.getDropletDetails(params.id);
   }
 
