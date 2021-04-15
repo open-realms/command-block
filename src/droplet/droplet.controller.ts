@@ -11,7 +11,7 @@ export class DropletController {
   }
 
   @Post()
-  createDroplet(): string {
+  async createDroplet(): string {
     return this.dropletService.createDroplet();
   }
 
