@@ -32,7 +32,7 @@ export class DropletController {
 
   @Put(':id/start')
   async startDroplet(@Param() params): string {
-    return this.dropletService.startDroplet(params.id);
+    return await this.dropletService.startDroplet(params.id);
   }
 
   @Put(':id/stop')
