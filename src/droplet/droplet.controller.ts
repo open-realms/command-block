@@ -27,7 +27,7 @@ export class DropletController {
 
   @Put(':id')
   async updateDropletDetails(@Param() params): string {
-    return this.dropletService.updateDropletDetails(params.id);
+    return await this.dropletService.updateDropletDetails(params.id);
   }
 
   @Put(':id/start')
