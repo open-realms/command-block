@@ -14,7 +14,7 @@ export class DropletService {
     return 'Server ${id} has been deleted!';
   }
 
-  getDropletDetails(id: string): string {
+  async getDropletDetails(id: string): string {
     return 'Here are the details for this server: ${id}';
   }
 
