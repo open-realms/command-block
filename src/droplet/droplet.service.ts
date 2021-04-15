@@ -26,7 +26,7 @@ export class DropletService {
     return 'Server ${id} has been started!';
   }
 
-  stopDroplet(id: string): string {
+  async stopDroplet(id: string): string {
     return 'Server ${id} has been stopped!';
   }
 }
