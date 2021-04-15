@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AppController } from './droplet.controller';
+import { AppService } from './droplet.service';
 
 describe('AppController', () => {
   let appController: AppController;
@@ -15,7 +15,7 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
+    it('should return "A new server has been created!"', () => {
       expect(appController.createDroplet()).toBe('A new server has been created!');
     });
   });
