@@ -22,7 +22,7 @@ export class DropletService {
     return 'Server ${id} has been updated!';
   }
 
-  startDroplet(id: string): string {
+  async startDroplet(id: string): string {
     return 'Server ${id} has been started!';
   }
 
