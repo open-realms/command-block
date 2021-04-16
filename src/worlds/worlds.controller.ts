@@ -1,9 +1,9 @@
 import { Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
-import { WorldService } from './world.service';
+import { WorldsService } from './worlds.service';
 
 @Controller('worlds')
-export class WorldController {
-  constructor(private readonly worldService: WorldService) {}
+export class WorldsController {
+  constructor(private readonly worldService: WorldsService) {}
 
   @Get()
   async getAllWorlds(): Promise<string> {

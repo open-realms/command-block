@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class WorldService {
+export class WorldsService {
   async getAllWorlds(): Promise<string> {
     return 'Here are all the worlds!';
   }
