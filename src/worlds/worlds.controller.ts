@@ -1,4 +1,13 @@
-import { Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
+import { CreateWorldDto } from './create-world.dto';
 import { WorldsService } from './worlds.service';
 
 @Controller('worlds')
@@ -11,8 +20,8 @@ export class WorldsController {
   }
 
   @Post()
-  async createWorld(): Promise<string> {
-    return await this.worldsService.createWorld();
+  async createWorld(@Body() createWorldDto: CreateWorldDto): Promise<string> {
+    return await this.worldsService.createWorld(createWorldDto);
   }
 
   @Delete(':id')
