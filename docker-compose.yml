@@ -3,6 +3,7 @@ version: '3.7'
 services:
   main:
     container_name: command-block
+    restart: always
     build:
       context: .
       target: development
@@ -23,6 +24,7 @@ services:
       - postgres
   postgres:
     container_name: command-block-db
+    restart: always
     image: postgres:13.2
     networks:
       - webnet
