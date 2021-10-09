@@ -19,7 +19,7 @@ export class WorldService {
     take?: number;
     cursor?: Prisma.WorldWhereUniqueInput;
     where?: Prisma.WorldWhereInput;
-    orderBy?: Prisma.WorldOrderByInput;
+    orderBy?: Prisma.WorldOrderByWithRelationInput;
   }): Promise<World[]> {
     const { skip, take, cursor, where, orderBy } = params;
     return this.prisma.world.findMany({
