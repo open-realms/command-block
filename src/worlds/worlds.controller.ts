@@ -26,8 +26,8 @@ export class WorldsController {
   }
 
   @Delete(':id')
-  async deleteWorld(@Param() params): Promise<string> {
-    return await this.worldsService.deleteWorld(params.id);
+  async deleteWorld(@Param() params): Promise<void> {
+    await this.worldsService.deleteWorld(params.id);
   }
 
   @Get(':id')
