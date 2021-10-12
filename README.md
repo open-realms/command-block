@@ -42,3 +42,13 @@ $ yarn migrate
 ```
 
 Remember that the command block containers MUST be running in order to run the migrations.
+
+## NPM Package Changes
+
+When installing or updating npm packages, you'll need to rebuild your docker containers. Shut down any running containers using `docker compose down` and then spin them up again by using the following command to rebuild the volumes:
+
+```shell
+$ docker compose up --build -V
+```
+
+This will ensure you've pulled in your updated node dependencies.
