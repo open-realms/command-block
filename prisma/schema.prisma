@@ -20,7 +20,7 @@ model User {
   worlds             WorldAccess[]
   lastLogin          DateTime
   createdAt          DateTime      @default(now())
-  updatedAt          DateTime
+  updatedAt          DateTime      @default(now())
   deletedAt          DateTime?
 }
 
@@ -30,9 +30,10 @@ model World {
   description String?
   flavor      String
   dropletId   String?
+  snapshotId  String?
   users       WorldAccess[]
   createdAt   DateTime      @default(now())
-  updatedAt   DateTime
+  updatedAt   DateTime      @default(now())
   deletedAt   DateTime?
 }
 
@@ -43,7 +44,7 @@ model WorldAccess {
   worldId   String
   role      String
   createdAt DateTime  @default(now())
-  updatedAt DateTime
+  updatedAt DateTime  @default(now())
   deletedAt DateTime?
 
   @@id([userId, worldId])

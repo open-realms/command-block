@@ -8,7 +8,7 @@ import {
   Put
 } from '@nestjs/common';
 import { Droplet } from 'digitalocean-js';
-import { CreateWorldDto } from './create-world.dto';
+import { CreateWorldDto } from './dto/create-world.dto';
 import { WorldsService } from './worlds.service';
 
 @Controller('worlds')
