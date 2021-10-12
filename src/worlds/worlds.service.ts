@@ -51,10 +51,8 @@ export class WorldsService {
     await this.world.deleteWorld({ id });
   }
 
-  async getWorldDetails(id: number): Promise<string> {
-    // fetch world details from database
-
-    return 'Here are the details for this world: ${id}';
+  async getWorldDetails(id: string): Promise<World | null> {
+    return await this.world.getWorld({ id });
   }
 
   async updateWorldDetails(id: number): Promise<string> {
