@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { Droplet } from 'digitalocean-js';
 import { CreateWorldDto } from './dto/create-world.dto';
+import { UpdateWorldDetailsDto } from './dto/update-world-details.dto';
 import { WorldsService } from './worlds.service';
 
 @Controller('worlds')
@@ -36,8 +37,14 @@ export class WorldsController {
   }
 
   @Put(':id')
-  async updateWorldDetails(@Param() params): Promise<string> {
-    return await this.worldsService.updateWorldDetails(params.id);
+  async updateWorldDetails(
+    @Param() params,
+    @Body() updateWorldDetailsDto: UpdateWorldDetailsDto
+  ): Promise<string> {
+    return await this.worldsService.updateWorldDetails(
+      params.id,
+      updateWorldDetailsDto
+    );
   }
 
   @Put(':id/start')
