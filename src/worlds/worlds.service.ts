@@ -5,6 +5,7 @@ import { MinecraftService } from '@open-realms/do-minecraft';
 import { Droplet } from 'digitalocean-js';
 import { WorldService } from '../world/world.service';
 import { CreateWorldDto } from './dto/create-world.dto';
+import { UpdateWorldDetailsDto } from './dto/update-world-details.dto';
 
 @Injectable()
 export class WorldsService {
@@ -57,7 +58,10 @@ export class WorldsService {
     return 'Here are the details for this world: ${id}';
   }
 
-  async updateWorldDetails(id: number): Promise<string> {
+  async updateWorldDetails(
+    id: number,
+    updateWorldDetailsDto: UpdateWorldDetailsDto
+  ): Promise<string> {
     // update DigitalOcean
 
     // update database
