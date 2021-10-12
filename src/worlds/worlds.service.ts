@@ -2,11 +2,12 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { MinecraftService } from '@open-realms/do-minecraft';
 import { Droplet } from 'digitalocean-js';
-import { CreateWorldDto } from './create-world.dto';
+import { WorldService } from '../world/world.service';
+import { CreateWorldDto } from './dto/create-world.dto';
 
 @Injectable()
 export class WorldsService {
-  constructor(private config: ConfigService) {}
+  constructor(private config: ConfigService, private world: WorldService) {}
 
   async getAllWorlds(): Promise<string> {
     // fetch data from database about each world
@@ -15,18 +16,24 @@ export class WorldsService {
   }
 
   async createWorld(createWorldDto: CreateWorldDto): Promise<Droplet> {
-    // create droplet and server on DigitalOcean
     // TODO: Get digitalocean api key from user record
     // instead of local config. This is okay for now for testing
     // until we get users set up properly.
     const minecraftService = new MinecraftService(
       this.config.get('DIGITAL_OCEAN_KEY')
     );
+
+    // Create droplet and minecraft world on DigitalOcean
     const droplet = await minecraftService.createMinecraftDroplet(
       createWorldDto
     );
 
-    // update database with info about world
+    // Add world to database
+    await this.world.createWorld({
+      name: createWorldDto.name,
+      flavor: createWorldDto.flavor,
+      dropletId: droplet.id.toString()
+    });
 
     return droplet;
   }
