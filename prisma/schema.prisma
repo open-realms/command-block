@@ -29,7 +29,7 @@ model World {
   name        String
   description String?
   flavor      String
-  dropletId   String?
+  dropletId   Int?
   snapshotId  String?
   users       WorldAccess[]
   createdAt   DateTime      @default(now())

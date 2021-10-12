@@ -1,3 +1,4 @@
+import { World } from '.prisma/client';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { MinecraftService } from '@open-realms/do-minecraft';
@@ -32,22 +33,22 @@ export class WorldsService {
     await this.world.createWorld({
       name: createWorldDto.name,
       flavor: createWorldDto.flavor,
-      dropletId: droplet.id.toString()
+      dropletId: droplet.id
     });
 
     return droplet;
   }
 
-  async deleteWorld(id: number): Promise<string> {
-    // TODO: See above
+  async deleteWorld(id: string): Promise<void> {
     const minecraftService = new MinecraftService(
       this.config.get('DIGITAL_OCEAN_KEY')
     );
-    await minecraftService.killMinecraftDroplet(id);
 
-    // remove all info from database about that world
+    const world = await this.world.getWorld({ id });
 
-    return 'World ${id} has been deleted!';
+    await minecraftService.killMinecraftDroplet(world.dropletId);
+
+    await this.world.deleteWorld({ id });
   }
 
   async getWorldDetails(id: number): Promise<string> {
