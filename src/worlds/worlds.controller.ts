@@ -7,7 +7,7 @@ import {
   Post,
   Put
 } from '@nestjs/common';
-import { Droplet } from 'digitalocean-js';
+import { World } from '.prisma/client';
 import { CreateWorldDto } from './dto/create-world.dto';
 import { WorldsService } from './worlds.service';
 
@@ -21,7 +21,7 @@ export class WorldsController {
   }
 
   @Post()
-  async createWorld(@Body() createWorldDto: CreateWorldDto): Promise<Droplet> {
+  async createWorld(@Body() createWorldDto: CreateWorldDto): Promise<World> {
     return await this.worldsService.createWorld(createWorldDto);
   }
 
