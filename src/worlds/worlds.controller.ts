@@ -3,11 +3,9 @@ import {
   Controller,
   Delete,
   Get,
-  NotFoundException,
   Param,
   Post,
-  Put,
-  Res
+  Put
 } from '@nestjs/common';
 import { Droplet } from 'digitalocean-js';
 import { CreateWorldDto } from './dto/create-world.dto';
