@@ -1,5 +1,5 @@
 import { World } from '.prisma/client';
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { MinecraftService } from '@open-realms/do-minecraft';
 import { Droplet } from 'digitalocean-js';
@@ -51,8 +51,14 @@ export class WorldsService {
     await this.world.deleteWorld({ id });
   }
 
-  async getWorldDetails(id: string): Promise<World | null> {
-    return await this.world.getWorld({ id });
+  async getWorldDetails(id: string): Promise<World> {
+    const world = await this.world.getWorld({ id });
+
+    if (world == null) {
+      throw new NotFoundException();
+    } else {
+      return world;
+    }
   }
 
   async updateWorldDetails(id: number): Promise<string> {

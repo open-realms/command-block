@@ -3,9 +3,11 @@ import {
   Controller,
   Delete,
   Get,
+  NotFoundException,
   Param,
   Post,
-  Put
+  Put,
+  Res
 } from '@nestjs/common';
 import { Droplet } from 'digitalocean-js';
 import { CreateWorldDto } from './dto/create-world.dto';
@@ -32,7 +34,7 @@ export class WorldsController {
   }
 
   @Get(':id')
-  async getWorldDetails(@Param() params): Promise<World | null> {
+  async getWorldDetails(@Param() params): Promise<World> {
     return await this.worldsService.getWorldDetails(params.id);
   }
 
